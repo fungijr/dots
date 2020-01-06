@@ -1,0 +1,85 @@
+!!!!!!!!!!!!!!!!
+!!!!!!! Mafia's
+!!!! X
+!!!!!! Resources
+!!!!!!!!!!!!!!!!
+
+
+
+!URxvt.font:             -*-montecarlo-medium-*-*-*-11-*-*-*-*-*-microsoft-cp1252
+!URxvt.boldFont:         -*-montecarlo-medium-*-*-*-11-*-*-*-*-*-microsoft-cp1252
+URxvt.font: xft:erus erusfont:size=8
+URxvt.boldFont: xft:erus erusfont:size=8
+
+
+! cause shell to be started as login shell
+URxvt*loginShell: true
+
+! do not scroll with output
+ URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! scrollbar misc
+URxvt.scrollBar: true
+URxvt.scrollstyle: xterm
+URxvt.scrollBar_right: true
+URxvt.scrollColor: #222222
+URxvt.troughColor: #444444
+
+! clickable URLS please
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: google-chrome-stable
+URxvt.matcher.button: 1
+URxvt.colorUL: #A020F0
+
+!Misc. settings, tired of explaining and talking to myself
+URxvt.imLocale: en_US.UTF-8
+URxvt.saveLines: 512
+URxvt.colorBD: #857672
+URxvt.colorIT: #bbbbbb
+URxvt.cursorBlink: true
+URxvt.cursorColor: #888888
+URxvt.internalBorder: 10
+URxvt.cursorUnderline: true
+URxvt.urgentOnBell: true
+
+!URxvt Colors
+*foreground: #C7C7C7
+*background: #151515
+!black
+*color0:     #393939
+*color8:     #474747
+!red
+*color1:     #FF9F95
+*color9:     #FF8D80
+!green
+*color2:     #9974C5
+*color10:    #DBFFB3
+!yellow
+*color3:     #FFFFB9
+*color11:    #FFBE64
+!blue
+*color4:     #A351D6
+*color12:    #A020F0
+!magenta
+*color5:     #E2B5B9
+*color13:    #D73A67
+!cyan
+*color6:     #F0205C
+*color14:    #DB6B8B
+!white
+*color7:     #dddddd
+*color15:    #dddddd
+
+!XFT settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: full
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xcursor.theme: Oxygen White
