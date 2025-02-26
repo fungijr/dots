@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Run dmenu_run to select a program
+program=$(dmenu_run)
+
+# Check if the user selected a program
+if [ -n "$program" ]; then
+    # Ask for any additional flags or arguments
+    flags=$(echo | dmenu -p "Enter flags:")
+
+    # Run the selected program with doas and the entered flags
+    doas $program $flags
+fi
