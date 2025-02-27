@@ -1,0 +1,19 @@
+# $HOME/.config/alacritty/alacritty.toml
+
+[window]
+
+opacity = 0.9
+
+padding.x = 15
+padding.y = 15
+dimensions.columns = 70
+dimensions.lines = 15
+decorations = "None"
+
+[font]
+normal.family = "montecarlo" 
+bold.family = "montecarlo"
+# italic.family = "Cascadia Code PL"
+# bold_italic.family = "Cascadia Code PL"
+
+size = 11
