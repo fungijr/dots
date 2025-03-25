@@ -3,10 +3,10 @@
 
 ##  Preferred applications
 SetEnv fvwm_browser google-chrome-stable
-SetEnv fvwm_terminal alacritty
-SetEnv fvwm_editor "alacritty -e vim"
-SetEnv fvwm_mail "alacritty -e mutt"
-SetEnv fvwm_chat "alacritty -e irssi"
+SetEnv fvwm_terminal kitty
+SetEnv fvwm_editor "kitty -e vim"
+SetEnv fvwm_mail "kitty -e mutt"
+SetEnv fvwm_chat "kitty -e irssi"
 SetEnv fvwm_filemanager  
 SetEnv fvwm_image_viewer feh
 SetEnv fvwm_runner dmenu
@@ -35,11 +35,10 @@ Style * IndexedWindowName
 HideGeometryWindow
 
 ## Virtual desktops 
-DesktopName 0 ws1
-DesktopName 1 ws2
-DesktopName 2 ws3
-DesktopName 3 ws4
-DesktopSize 4x1 
+DesktopName 0 ws0
+DesktopName 1 ws1
+DesktopName 2 ws2
+DesktopSize 3x1 
 
 ## TEST
 BugOpts FlickeringMoveWorkaround True
@@ -198,7 +197,7 @@ Key Up A C1 Scroll +0 -100
 Key Down A C1 Scroll +0 +100
 
 ## Daily Binds + WASD/QEZX Tiling
-Key Return A 1 Exec alacritty
+Key Return A 1 Exec kitty
 Key Return A C1 Exec dmenu_run -nb "#222222" -nf "#C7c7c7" -sb "#333333" -sf "#F0205c" -fn "montecarlo-9"
 Key r A C1 restart
 Key q A C1 quit
@@ -230,7 +229,7 @@ AddToMenu MainMenu MainMenu title
 AddToFunc MakeMainMenu
 + I DestroyMenu recreate MainMenu
 + I AddToMenu MainMenu MissingSubmenuFunction FuncFvwmMenuDirectory 
-+ I AddToMenu MainMenu "&Term" Exec exec urxvt
++ I AddToMenu MainMenu "&Term" Exec exec kitty
 + I AddToMenu MainMenu "&Web" Exec exec google-chrome-stable
 + I AddToMenu MainMenu "&Browse" Popup $[HOME]
 + I AddToMenu MainMenu "&Apps" Popup Applications
@@ -289,13 +288,13 @@ MenuStyle * SeparatorsLong, TrianglesRelief
 MenuStyle * BorderWidth 7
 MenuStyle * ActiveFore, Hilight3DOff, 
 
-## Popup settings 
+## Popup Settings 
 MenuStyle * PopupAsSubmenu, HoldSubmenus, SubmenusRight
 MenuStyle "*" PopupOffset 2 100
 
 ## Fonts
-MenuStyle "*" Font "-*-montecarlo-medium-*-*-*-11-*-*-*-*-*-microsoft-cp1252"
-Style "*" Font "-*-montecarlo-medium-*-*-*-11-*-*-*-*-*-microsoft-cp1252"
+MenuStyle "*" Font "-*-3270 condensed-medium-*-*-*-*-*-*-*-*-*-adobe-*"
+Style "*" Font "-*-3270 condensed-medium-*-*-*-*-*-*-*-*-*-adobe-*"
 
 ## Borders/Decor
 DestroyDecor MyDecor
@@ -333,5 +332,36 @@ Style "*" ResizeHintOverride
 Style "*" !IconTitle
 Style * IconBox 1000x944+40+40, IconGrid 15 15, IconFill top left, !IconTitle, IconBackgroundRelief 0
 DestroyMenuStyle WindowList
+Style "FvwmButtons" Sticky
+
+### "Panel" Settings
+*FvwmButtons: Geometry 218x700-20-27
+*FvwmButtonsBack #151515
+
+## Create button "panel" w/pager
+*FvwmButtons: (4x1 Frame 0 Padding 0 0 Container(Rows 4 Columns 1 Frame 0 \
+                                           Padding 0 0))
+*FvwmButtons: (4x1 Frame 0 Swallow(UseOld) "FvwmPager" "Module FvwmPager 0 0 ")
+
+## Pager Options
+*FvwmPager: Font "-*-ANAKRON-*-*-*-*-12-*-*-*-*-*-*-*"
+*FvwmPager: Back "#151515"
+*FvwmPager: Fore "#A020F0"
+*FvwmPager: Hilight "#252525"
+*FvwmPager: WindowColors fore "#151515" back "#A020F0" HiFore "#151515" HiBack "#151515"
+*FvwmPager: SolidSeparators
+*FvwmPager: WindowBorderWidth 2
+
+## Button Programs
+*FvwmButtons: (4x1 Frame 0 Swallow(UseOld,NoHints,Respawn) "xload" `Exec exec xload -hl "#D73A67" -bg "#151515" -fg "#B5E15D" -update 5 -nolabel`)
+*FvwmButtons: (4x1 Frame 0 Padding 0 5 Swallow(UseOld,NoHints,Respawn) "Alacritty" `Exec alacritty --hold -e /home/mafia/weather.sh `)
+*FvwmButtons: (4x1 Frame 0 Padding 0 0 Swallow(UseOld,NoHints,Respawn) "Alacritty" `Exec alacritty --hold -e /home/mafia/wifi.sh`)
+
+## Split for catclock
+*FvwmButtons: (End)
+
+## Catclock
+*FvwmButtons: BoxSize smart
+*FvwmButtons: (4x1 Frame 0 Swallow(UseOld,Hints,Respawn) "xclock" `Exec exec xclock -mode cat -detailcolor "#A351D6" -tiecolor "#FF8D80" -update 1`)
 
 ## END ##
